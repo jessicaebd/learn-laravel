@@ -31,20 +31,12 @@ class Event
 
     public static function all() 
     {
-        return self::$event_list;
+        return collect(self::$event_list);
     }
 
     public static function find($slug) 
     {
-        $events = self::$event_list;
-        $temp = [];
-
-        foreach ($events as $event) {
-            if ($event["slug"] === $slug) {
-                $temp = $event;
-            }
-        }
-
-        return $temp;
+        $events = static::all();
+        return $events->firstWhere('slug', $slug);
     }
 }

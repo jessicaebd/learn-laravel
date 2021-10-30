@@ -24,6 +24,6 @@ class Member
 
     public static function all() 
     {
-        return self::$member_list;
+        return collect(self::$member_list);
     }
 }

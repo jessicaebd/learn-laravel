@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\EventController;
+use App\Http\Controllers\MemberController;
 use App\Models\Event;
 use App\Models\Member;
 use Illuminate\Support\Facades\Route;
@@ -21,25 +23,10 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/about', function () {
-    return view('about', [
-        "title" => "About",
-        "members" => Member::all()
-    ]);
-});
+Route::get('/about', [MemberController::class, 'index']);
 
-Route::get('/events', function () {
-    return view('events', [
-        "title" => "Events",
-        "eventList" => Event::all()
-    ]);
-});
+Route::get('/events', [EventController::class, 'index']);
 
 
 // Single Post (Event)
-Route::get('events/{slug}', function ($slug) {
-    return view('event',[
-        "title" => "Single Event",
-        "event" => Event::find($slug)
-    ]);
-});
+Route::get('events/{slug}', [EventController::class, 'show']);

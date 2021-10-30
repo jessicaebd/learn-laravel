@@ -1,7 +1,5 @@
 @extends('layouts.main')
 
 @section('container')
-   <h1>
-      Welcome to SIGNAL
-   </h1>
+    <h1>Events Details</h1>
 @endsection

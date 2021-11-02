@@ -5,7 +5,7 @@
 
     @foreach ($members as $member)
     <br>
-    <h5>{{ $member["name"] }}</h5>
-    <p>as <b>{{ $member["role"] }}</b> from {{ $member["class"] }}</p>
+    <h5>{{ $member->name }}</h5>
+    <p>as <b>{{ $member->role }}</b> from {{ $member->class }}</p>
     @endforeach
 @endsection

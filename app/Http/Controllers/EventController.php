@@ -15,11 +15,11 @@ class EventController extends Controller
         ]);
     }
 
-    public function show($slug) 
+    public function show($id) 
     {
         return view('event',[
             "title" => "Single Event",
-            "event" => Event::find($slug)
+            "eventList" => Event::find($id)
         ]);
     }
 }

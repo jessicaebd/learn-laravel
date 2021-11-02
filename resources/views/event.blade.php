@@ -2,9 +2,10 @@
 
 @section('container')
     <article>
-        <h1>{{ $event["eventName"] }}</h1>
+        <h1>{{ $eventList["name"] }}</h1>
     </article>
     <br>
-    <p>Held by {{ $event["division"] }} and led by {{ $event["leader"] }}</p>
-    <p>{{ $event["description"] }}</p>
+    <p>Held by {{ $eventList["by_division"] }} and led by {{ $eventList["leader"] }}</p>
+    <p>{{ $eventList["description"] }}</p>
+    <a href="/events">Back to Events</a>
 @endsection

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\MemberController;
+use App\Models\Category;
 use App\Models\Event;
 use App\Models\Member;
 use Illuminate\Support\Facades\Route;
@@ -27,6 +28,13 @@ Route::get('/about', [MemberController::class, 'index']);
 
 Route::get('/events', [EventController::class, 'index']);
 
-
 // Single Post (Event)
 Route::get('/events/{event:slug}', [EventController::class, 'show']);
+
+Route::get('/categories/{category:slug}', function (Category $category) {
+    return view('category',[
+        'title' => $category->name,
+        'eventList' => $category->events,
+        'category' => $category->name
+    ]);
+});

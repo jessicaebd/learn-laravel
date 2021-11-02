@@ -29,4 +29,4 @@ Route::get('/events', [EventController::class, 'index']);
 
 
 // Single Post (Event)
-Route::get('/events/{id}', [EventController::class, 'show']);
+Route::get('/events/{event:slug}', [EventController::class, 'show']);

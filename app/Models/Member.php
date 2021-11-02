@@ -9,6 +9,7 @@ class Member
             "name" => "Geviena",
             "role" => "Ketua",
             "class" => "PPA 53"
+            
         ],
         [
             "name" => "Pascal Wilman",

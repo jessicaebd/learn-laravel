@@ -2,29 +2,10 @@
 
 namespace App\Models;
 
-class Member
-{
-    private static $member_list = [
-        [
-            "name" => "Geviena",
-            "role" => "Ketua",
-            "class" => "PPA 53"
-            
-        ],
-        [
-            "name" => "Pascal Wilman",
-            "role" => "Wakil Ketua",
-            "class" => "PPTI 10"
-        ],
-        [
-            "name" => "Serafim",
-            "role" => "Bendahara II",
-            "class" => "PPBP 1"
-        ],
-    ];
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
-    public static function all() 
-    {
-        return collect(self::$member_list);
-    }
+class Member extends Model
+{
+    use HasFactory;
 }

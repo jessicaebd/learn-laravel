@@ -16,7 +16,11 @@
             @foreach ($members as $member)
             <li>
                 <dt>{{ $member->name }} </dt>
-                <dd>from {{ $member->class }} as {{ $member->role }}</dd>
+                <dd>from {{ $member->class }} as 
+                    <a href="/divisions/{{ $member->division->slug }}">
+                        {{ $member->division->name }}
+                    </a>
+                </dd>
             </li>
             @endforeach
         </ul>

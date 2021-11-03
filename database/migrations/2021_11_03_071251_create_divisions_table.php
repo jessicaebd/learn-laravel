@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMembersTable extends Migration
+class CreateDivisionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,11 @@ class CreateMembersTable extends Migration
      */
     public function up()
     {
-        Schema::create('members', function (Blueprint $table) {
+        Schema::create('divisions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('division_id');
-            $table->string('name');
+            $table->string('name')->unique(true);
             $table->string('slug')->unique(true);
-            $table->string('class');
-            $table->string('status');
-            $table->timestamp('DOB')->nullable(true);
+            $table->text('jobdesk');
             $table->timestamps();
         });
     }
@@ -32,6 +29,6 @@ class CreateMembersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('members');
+        Schema::dropIfExists('divisions');
     }
 }

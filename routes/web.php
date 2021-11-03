@@ -3,6 +3,7 @@
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\MemberController;
 use App\Models\Category;
+use App\Models\Division;
 use App\Models\Event;
 use App\Models\Member;
 use Illuminate\Support\Facades\Route;
@@ -32,9 +33,18 @@ Route::get('/events', [EventController::class, 'index']);
 Route::get('/events/{event:slug}', [EventController::class, 'show']);
 
 Route::get('/categories/{category:slug}', function (Category $category) {
-    return view('category',[
+    return view('category', [
         'title' => $category->name,
         'eventList' => $category->events,
         'category' => $category->name
+    ]);
+});
+
+Route::get('/divisions/{division:slug}', function (Division $division) {
+    return view('division', [
+        'title' => $division->name,
+        'memberList' => $division->members,
+        'division' => $division->name,
+        'jobdesk' => $division->jobdesk
     ]);
 });

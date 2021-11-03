@@ -5,14 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Member extends Model
+class Division extends Model
 {
     use HasFactory;
 
     protected $guarded = ['id'];
 
-    public function division()
+    public function members()
     {
-        return $this->belongsTo(Division::class);
+        return $this->hasMany(Member::class);
     }
 }

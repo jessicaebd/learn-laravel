@@ -1,12 +1,12 @@
 <?php
 
-use App\Http\Controllers\EventController;
-use App\Http\Controllers\MemberController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\DivisionController;
+use Illuminate\Support\Facades\Route;
 use App\Models\Category;
 use App\Models\Division;
-use App\Models\Event;
-use App\Models\Member;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EventController;
+use App\Http\Controllers\MemberController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,19 +32,6 @@ Route::get('/events', [EventController::class, 'index']);
 // Single Post (Event)
 Route::get('/events/{event:slug}', [EventController::class, 'show']);
 
-Route::get('/categories/{category:slug}', function (Category $category) {
-    return view('category', [
-        'title' => $category->name,
-        'eventList' => $category->events,
-        'category' => $category->name
-    ]);
-});
+Route::get('/categories/{category:slug}', [CategoryController::class, 'show']);
 
-Route::get('/divisions/{division:slug}', function (Division $division) {
-    return view('division', [
-        'title' => $division->name,
-        'memberList' => $division->members,
-        'division' => $division->name,
-        'jobdesk' => $division->jobdesk
-    ]);
-});
+Route::get('/divisions/{division:slug}', [DivisionController::class, 'show']);

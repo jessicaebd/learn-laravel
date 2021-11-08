@@ -14,7 +14,11 @@ class MemberFactory extends Factory
     public function definition()
     {
         return [
-            //
+            // 'division_id' => mt_rand(1, 7),
+            // 'name' => $this->faker->name(),
+            // 'slug' => $this->faker->slug(),
+            // 'class' => $this->faker->numerify('PPA-##'),
+            // 'status' => $this->faker->word()
         ];
     }
 }

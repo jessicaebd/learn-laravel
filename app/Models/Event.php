@@ -16,6 +16,11 @@ class Event extends Model
         return $this->belongsTo(Category::class);
     }
 
+    public function division()
+    {
+        return $this->belongsTo(Division::class);
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class);

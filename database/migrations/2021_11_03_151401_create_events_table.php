@@ -18,6 +18,7 @@ class CreateEventsTable extends Migration
             $table->foreignId('category_id');
             $table->foreignId('division_id');
             $table->foreignId('user_id');
+            $table->foreignId('member_id');
             $table->string('name');
             $table->string('slug')->unique(true);
             $table->integer('price')->nullable(true);

@@ -23,7 +23,7 @@
     @foreach ($eventList as $event)
     <article class="mb-5 border-bottom pb-3">
         <h5><a href="/events/{{ $event->slug }}">{{ $event->name }}</a></h5>
-        {{-- <p>Posted by {{ $event->user->name }}</p> --}}
+        <p>Posted by <a href="#">{{ $event->user->name }}</a> </p>
         <p>{{ $event->excerpt }}</p>
         <a href="/events/{{ $event->slug }}">Read more...</a>
     </article>

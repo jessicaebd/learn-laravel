@@ -6,7 +6,7 @@
     @foreach ($eventList as $event)
         <br>
         <h5><a href="/events/{{ $event->slug }}">{{ $event->name }}</a></h5>
-        <p>Held by {{ $event->by_division }} and led by {{ $event->leader }}</p>
+        <p>Held by {{ $event->division->name }} and coordinated by {{ $event->member->name }}</p>
         {{ $event->exerpt }}
         <br>
     @endforeach

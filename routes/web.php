@@ -29,6 +29,8 @@ Route::get('/about', [MemberController::class, 'index']);
 
 Route::get('/events', [EventController::class, 'index']);
 
+Route::get('/categories', [CategoryController::class, 'index']);
+
 // Single Post (Event)
 Route::get('/events/{event:slug}', [EventController::class, 'show']);
 

@@ -11,13 +11,15 @@ class EventController extends Controller
     {
         return view('events', [
             "title" => "Events",
-            "eventList" => Event::all()
+            // "eventList" => Event::all()
+            "eventList" => Event::latest()->get()
+
         ]);
     }
 
-    public function show(Event $event) 
+    public function show(Event $event)
     {
-        return view('event',[
+        return view('event', [
             "title" => "Single Event",
             "eventList" => $event
         ]);

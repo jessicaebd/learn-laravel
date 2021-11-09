@@ -10,6 +10,7 @@ class Event extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
+    protected $with = ['category'];
 
     public function category()
     {

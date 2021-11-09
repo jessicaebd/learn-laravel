@@ -10,19 +10,51 @@
 
     <br>
 
-    <div>
-        <h3>Team's Member:</h3>
-        <ul>
+
+    
+    {{-- <li>
+        <dt>{{ $member->name }} </dt>
+        <dd>from {{ $member->class }} as 
+            <a href="/divisions/{{ $member->division->slug }}">
+                {{ $member->division->name }}
+            </a>
+        </dd>
+    </li> --}}
+    
+
+    <h3>Team's Member:</h3>
+
+    {{-- Member List Cards --}}
+    <div class="container">
+        <div class="row">
             @foreach ($members as $member)
-            <li>
-                <dt>{{ $member->name }} </dt>
-                <dd>from {{ $member->class }} as 
-                    <a href="/divisions/{{ $member->division->slug }}">
-                        {{ $member->division->name }}
-                    </a>
-                </dd>
-            </li>
+            <div class="col-md-3 mb-3">
+                <div class="card">
+                    <img src="https://source.unsplash.com/400x400?{{ $member->division->name }}" class="card-img-top" alt="{{ $member->name }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ $member->name }}</h5>
+                        {{-- <small>
+                            <p>Posted by 
+                                <a href="#" class="text-decoration-none">{{ $event->user->name }}</a> 
+                                <small class="text-muted">
+                                    {{ $event->created_at->diffForHumans() }}
+                                </small>
+                            </p>
+                        </small> --}}
+                        <p class="card-text">
+                            from {{ $member->class }} as 
+                                <a href="/divisions/{{ $member->division->slug }}">
+                                    {{ $member->division->name }}
+                                </a>
+                            
+                        </p>
+
+                    </div>
+                </div>
+            </div>
             @endforeach
-        </ul>
+        </div>
     </div>
+    {{-- End of Member List Cards --}}
+
 @endsection

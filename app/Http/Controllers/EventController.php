@@ -9,15 +9,23 @@ class EventController extends Controller
 {
     public function index()
     {
+        $events = Event::latest();
+
+        if (request('search')) {
+            $events->where('name', 'like', '%' . request('search') . '%')
+                ->orWhere('description', 'like', '%' . request('search') . '%');
+        }
+
         return view('events', [
             "title" => "Events",
-            "eventList" => Event::all()
+            "eventList" => $events->get()
+
         ]);
     }
 
-    public function show(Event $event) 
+    public function show(Event $event)
     {
-        return view('event',[
+        return view('event', [
             "title" => "Single Event",
             "eventList" => $event
         ]);

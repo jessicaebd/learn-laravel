@@ -15,4 +15,9 @@ class Member extends Model
     {
         return $this->belongsTo(Division::class);
     }
+
+    public function events()
+    {
+        return $this->hasMany(Event::class);
+    }
 }

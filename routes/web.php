@@ -1,12 +1,14 @@
 <?php
 
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\DivisionController;
-use Illuminate\Support\Facades\Route;
 use App\Models\Category;
 use App\Models\Division;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MemberController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\DivisionController;
+use App\Http\Controllers\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,9 +33,14 @@ Route::get('/events', [EventController::class, 'index']);
 
 Route::get('/categories', [CategoryController::class, 'index']);
 
-// Single Post (Event)
+// Single Post
 Route::get('/events/{event:slug}', [EventController::class, 'show']);
 
 Route::get('/categories/{category:slug}', [CategoryController::class, 'show']);
 
 Route::get('/divisions/{division:slug}', [DivisionController::class, 'show']);
+
+// Login
+Route::get('/login', [LoginController::class, 'index']);
+
+Route::get('/register', [RegisterController::class, 'index']);

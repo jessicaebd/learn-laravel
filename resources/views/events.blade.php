@@ -1,7 +1,20 @@
 @extends('layouts.main')
 
 @section('container')
-    <h3 class="mb-5 ">SIGNAL's Events</h3>
+    <h3 class="mb-5 text-center">SIGNAL's Events</h3>
+
+    {{-- Search Box --}}
+    <div class="row justify-content-center mb-4">
+        <div class="col-md-10">
+            <form action="/events">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Search..." name="search" value="{{ request('search') }}">
+                    <button class="btn btn-dark" type="submit">Search</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    {{-- End of Search Box --}}
 
     {{-- Latest Events --}}
     @if ($eventList->count())
@@ -29,9 +42,7 @@
                 </a>
             </div>
         </div>
-    @else
-        <p class="text-center fs-4">No post found.</p>
-    @endif
+    
     {{-- End of Latest Events --}}
 
     {{-- Events List --}}
@@ -67,6 +78,8 @@
                 @endforeach
             </div>
         </div>
-    {{-- End of Events List --}}
-
+        {{-- End of Events List --}}
+    @else
+        <p class="text-center fs-4">No post found.</p>
+    @endif
 @endsection

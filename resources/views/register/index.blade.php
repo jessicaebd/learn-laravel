@@ -4,9 +4,10 @@
     <div class="row justify-content-center">
         <div class="col-md-5">
             <main class="form-registration">
-                <form>
-                    <h1 class="h3 mb-5 fw-normal text-center">Register</h1>
-
+                <h1 class="h3 mb-5 fw-normal text-center">Register</h1>
+                
+                <form action="/register" method="post">
+                    @csrf
                     <div class="form-floating">
                         <input type="name" class="form-control" id="name" placeholder="Name">
                         <label for="name">Name</label>

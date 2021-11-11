@@ -7,6 +7,7 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DivisionController;
 use App\Http\Controllers\RegisterController;
 
@@ -40,11 +41,19 @@ Route::get('/categories/{category:slug}', [CategoryController::class, 'show']);
 
 Route::get('/divisions/{division:slug}', [DivisionController::class, 'show']);
 
-// Login
-Route::get('/register', [RegisterController::class, 'index']);
+// Register
+Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
 
 Route::post('/register', [RegisterController::class, 'store']);
 
-Route::get('/login', [LoginController::class, 'index']);
+// Login
+Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 
 Route::post('/login', [LoginController::class, 'authenticate']);
+
+Route::post('/logout', [LoginController::class, 'logout']);
+
+// Dashboard
+Route::get('/dashboard', function () {
+    return view('dashboard.index');
+})->middleware('auth');

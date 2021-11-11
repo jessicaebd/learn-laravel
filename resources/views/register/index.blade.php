@@ -54,7 +54,7 @@
                         <input type="checkbox" value="remember-me"> Remember me
                     </label>
                     </div> --}}
-                    <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+                    <button class="w-100 btn btn-lg btn-primary" type="submit">Sign Up</button>
                     <small class="d-block text-center mt-3">
                         Already registered? <a href="/register">Login</a>
                     </small>

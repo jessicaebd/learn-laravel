@@ -59,8 +59,8 @@
                                 </a>
                             </h5>
                             <small>
-                                <p>Posted by 
-                                    <a href="#" class="text-decoration-none">{{ $event->user->name }}</a> 
+                                <p>Posted by
+                                    {{-- <a href="#" class="text-decoration-none">{{ $event->user->username }}</a>  --}}
                                     <small class="text-muted">
                                         {{ $event->created_at->diffForHumans() }}
                                     </small>

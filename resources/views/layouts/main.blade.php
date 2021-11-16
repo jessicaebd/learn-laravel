@@ -15,6 +15,7 @@
 
     {{-- Custom CSS --}}
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/carousel.css">
 
     <!-- Bootstrap core CSS -->
     <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -28,9 +29,9 @@
     {{-- End of Navbar --}}
 
     {{-- Body --}}
-    <div class="container mt-5">
-        @yield('container')
-    </div>
+    {{-- <div class="container mt-5"> --}}
+    @yield('container')
+    {{-- </div> --}}
     {{-- End of Body --}}
 
     {{-- Footer --}}

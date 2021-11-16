@@ -1,6 +1,8 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-light fixed-top bg-light shadow-sm p-md-3 p-2">
     <div class="container">
-        <a class="navbar-brand" href="#">SIGNAL</a>
+        <a class="navbar-brand" href="/">
+            <img src="images/signal-logo.png" alt="signal's logo" width="25" height="25"
+                class="d-inline-block align-text-top me-2"> <b>SIGNAL</b></a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -8,7 +10,7 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
                     <a class="nav-link {{ $title === 'Home' ? 'active' : '' }}" aria-current="page" href="/">Home</a>
                 </li>
@@ -23,8 +25,6 @@
                         href="/categories">Categories</a>
                 </li>
             </ul>
-
-
 
             <ul class="navbar-nav ms-auto">
                 @auth
@@ -59,15 +59,21 @@
                 @else
                     {{-- Login Button --}}
                     <li class="nav-item">
-                        <a class="btn btn-primary nav-link {{ $title === 'Login' ? 'active' : '' }}" href="/login">
+                        <a class="btn px-4 btn-dark text-light nav-link rounded-pill {{ $title === 'Login' ? 'active' : '' }}"
+                            href="/login">
                             <i class="bi bi-box-arrow-left"></i> Login
                         </a>
                     </li>
                     {{-- Login Button --}}
                 @endauth
-
             </ul>
 
         </div>
     </div>
 </nav>
+
+{{-- ini haram --}}
+<div>
+    <h1>-</h1>
+</div>
+{{-- ini haram --}}

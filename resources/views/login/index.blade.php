@@ -25,10 +25,10 @@
                     <h1 class="h3 mb-5 fw-normal text-center">Login</h1>
 
                     <div class="form-floating">
-                        <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="email"
-                            placeholder="email@example.com" required value="{{ old('email') }}">
-                        <label for="email">Email address</label>
-                        @error('email')
+                        <input type="username" name="username" class="form-control @error('username') is-invalid @enderror"
+                            id="username" placeholder="Username" required value="{{ old('username') }}">
+                        <label for="username">Username</label>
+                        @error('username')
                             <div class="invalid-feedback">
                                 {{ $message }}
                             </div>

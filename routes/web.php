@@ -8,6 +8,8 @@ use App\Http\Controllers\MemberController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DivisionController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\RegisterController;
 
 /*
@@ -40,21 +42,24 @@ Route::get('/categories/{category:slug}', [CategoryController::class, 'show']);
 
 Route::get('/divisions/{division:slug}', [DivisionController::class, 'show']);
 
+// Dashboard
+Route::get('/dashboard', function () {
+    return view('dashboard.index');
+})->name('dashboard')->middleware('auth');
+
+
+
 // Register
-Route::get('/register', [RegisterController::class, 'index'])
-    ->name('register')
-    ->middleware('guest');
+Route::get('/register', [RegisterController::class, 'index'])->name('register')->middleware('guest');
 
 Route::post('/register', [RegisterController::class, 'store']);
+
 
 // Login
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 
-Route::post('/login', [LoginController::class, 'authenticate']);
+Route::post('/login', [LoginController::class, 'store']);
 
-Route::post('/logout', [LoginController::class, 'logout']);
 
-// Dashboard
-Route::get('/dashboard', function () {
-    return view('dashboard.index');
-})->middleware('auth');
+// Logout
+Route::post('/logout', [LogoutController::class, 'logout'])->name('logout')->middleware('auth');

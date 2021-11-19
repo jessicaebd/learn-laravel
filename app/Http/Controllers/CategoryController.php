@@ -9,7 +9,7 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        return view('categories', [
+        return view('categories.index', [
             "title" => "Categories",
             "categories" => Category::all()
         ]);
@@ -17,7 +17,7 @@ class CategoryController extends Controller
 
     public function show(Category $category)
     {
-        return view('category', [
+        return view('categories.single-category', [
             'title' => $category->name,
             'eventList' => $category->events,
             'category' => $category->name

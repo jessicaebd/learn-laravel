@@ -16,7 +16,7 @@ class EventController extends Controller
                 ->orWhere('description', 'like', '%' . request('search') . '%');
         }
 
-        return view('events', [
+        return view('events.index', [
             "title" => "Events",
             "eventList" => $events->get()
 
@@ -25,7 +25,7 @@ class EventController extends Controller
 
     public function show(Event $event)
     {
-        return view('event', [
+        return view('events.single-event', [
             "title" => "Single Event",
             "eventList" => $event
         ]);

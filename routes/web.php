@@ -29,18 +29,16 @@ Route::get('/', function () {
     ]);
 })->name('home');
 
-Route::get('/about', [MemberController::class, 'index']);
+Route::get('/about', [MemberController::class, 'index'])->name('about');
 
-Route::get('/events', [EventController::class, 'index']);
+Route::get('/events', [EventController::class, 'index'])->name('events');
+Route::get('/events/{event:slug}', [EventController::class, 'show'])->name('singleEvents');
 
-Route::get('/categories', [CategoryController::class, 'index']);
-
-// Single Post
-Route::get('/events/{event:slug}', [EventController::class, 'show']);
-
-Route::get('/categories/{category:slug}', [CategoryController::class, 'show']);
+Route::get('/categories', [CategoryController::class, 'index'])->name('categories');
+Route::get('/categories/{category:slug}', [CategoryController::class, 'show'])->name('singleCategory');
 
 Route::get('/divisions/{division:slug}', [DivisionController::class, 'show']);
+
 
 // Dashboard
 Route::get('/dashboard', function () {
@@ -48,16 +46,13 @@ Route::get('/dashboard', function () {
 })->name('dashboard')->middleware('auth');
 
 
-
 // Register
 Route::get('/register', [RegisterController::class, 'index'])->name('register')->middleware('guest');
-
 Route::post('/register', [RegisterController::class, 'store']);
 
 
 // Login
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
-
 Route::post('/login', [LoginController::class, 'store']);
 
 

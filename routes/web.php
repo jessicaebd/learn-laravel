@@ -4,12 +4,11 @@ use App\Models\Category;
 use App\Models\Division;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EventController;
-use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DivisionController;
-use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Auth\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,7 +25,7 @@ Route::get('/', function () {
     return view('home', [
         "title" => "Home"
     ]);
-});
+})->name('home');
 
 Route::get('/about', [MemberController::class, 'index']);
 
@@ -42,7 +41,9 @@ Route::get('/categories/{category:slug}', [CategoryController::class, 'show']);
 Route::get('/divisions/{division:slug}', [DivisionController::class, 'show']);
 
 // Register
-Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
+Route::get('/register', [RegisterController::class, 'index'])
+    ->name('register')
+    ->middleware('guest');
 
 Route::post('/register', [RegisterController::class, 'store']);
 

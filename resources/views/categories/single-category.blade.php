@@ -4,13 +4,14 @@
     <h1 class="mb-5">Category: {{ $category }}</h1>
 
 
-        {{-- Events List --}}
-        <div class="container">
-            <div class="row">
-                @foreach ($eventList as $event)
+    {{-- Events List --}}
+    <div class="container">
+        <div class="row">
+            @foreach ($eventList as $event)
                 <div class="col-md-4 mb-3">
                     <div class="card">
-                        <img src="https://source.unsplash.com/800x400?{{ $event->category->name }}" class="card-img-top" alt="{{ $event->category->name }}">
+                        <img src="https://source.unsplash.com/800x400?{{ $event->category->name }}" class="card-img-top"
+                            alt="{{ $event->category->name }}">
                         <div class="card-body">
                             <h5 class="card-title">
                                 <a href="/events/{{ $event->slug }}" class="text-decoration-none">
@@ -18,8 +19,8 @@
                                 </a>
                             </h5>
                             <small>
-                                <p>Posted by 
-                                    <a href="#" class="text-decoration-none">{{ $event->user->name }}</a> 
+                                <p>Posted by
+                                    <a href="#" class="text-decoration-none">{{ $event->user->name }}</a>
                                     <small class="text-muted">
                                         {{ $event->created_at->diffForHumans() }}
                                     </small>
@@ -32,11 +33,11 @@
                                 Read more...
                             </a>
                         </div>
-                      </div>
+                    </div>
                 </div>
-                @endforeach
-            </div>
+            @endforeach
         </div>
+    </div>
     {{-- End of Events List --}}
 
     {{-- @foreach ($eventList as $event)

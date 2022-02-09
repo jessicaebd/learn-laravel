@@ -6,9 +6,9 @@
 
     <ul>
         @foreach ($memberList as $member)
-        <li>
-            <b>{{ $member->name }}</b> as {{ $member->status }}
-        </li>
+            <li>
+                <b>{{ $member->name }}</b> as {{ $member->status }}
+            </li>
         @endforeach
     </ul>
 

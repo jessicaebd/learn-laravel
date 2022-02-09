@@ -23,7 +23,6 @@
 
     {{-- Custom CSS --}}
     <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/carousel.css">
 
     <title>SIGNAL | {{ $title }} Page</title>
 </head>
